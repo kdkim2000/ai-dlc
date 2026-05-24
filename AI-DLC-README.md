@@ -17,6 +17,7 @@
    - [Spring Boot 백엔드](#41-spring-boot-백엔드)
    - [React/Vite 프론트엔드](#42-reactvite-프론트엔드)
    - [Next.js App Router](#43-nextjs-app-router)
+   - [Vue.js 3](#44-vuejs-3)
 5. [스킬 전체 목록](#5-스킬-전체-목록)
 6. [ID 체계 및 산출물 연계](#6-id-체계-및-산출물-연계)
 7. [산출물 파일 규칙](#7-산출물-파일-규칙)
@@ -81,6 +82,7 @@ Claude Code 채팅창에 자연어로 입력:
 | React SPA (Vite, 별도 API 서버 연동) | React/Vite (`ai-dlc-fe-*`) |
 | React + SSR/SSG + 인증 + 풀스택 | Next.js App Router (`ai-dlc-nxt-*`) |
 | 풀스택 단일 프레임워크 | Next.js (`ai-dlc-nxt-*`) |
+| Vue.js SPA (Pinia, Vue Router v4 기반) | Vue.js 3 (`ai-dlc-vue-*`) |
 
 ---
 
@@ -190,10 +192,10 @@ ai-dlc-screen-revise 반복
 ```
 [설계 완료: UC-NNN, SCR-NNN, API YAML, 데이터설계서, 클래스설계서]
                           │
-             ┌────────────┼────────────────┐
-             ▼            ▼                ▼
-      [Spring Boot]   [React/Vite]    [Next.js]
-      ai-dlc-sb-*     ai-dlc-fe-*    ai-dlc-nxt-*
+      ┌────────────┼────────────────┬──────────────┐
+      ▼            ▼                ▼              ▼
+[Spring Boot]  [React/Vite]    [Next.js]      [Vue.js 3]
+ai-dlc-sb-*    ai-dlc-fe-*    ai-dlc-nxt-*   ai-dlc-vue-*
 ```
 
 ---
@@ -413,6 +415,64 @@ ai-dlc-nxt-page-gen              ai-dlc-nxt-route-handler-gen
 
 ---
 
+### 4.4 Vue.js 3
+
+**적합한 경우**: Vue.js SPA, Pinia 상태관리, Vue Router 기반 클라이언트 사이드 앱
+
+**기술 스택**: Vue 3 + TypeScript + Vite + Pinia + Vue Router v4 + @tanstack/vue-query + VeeValidate v4 + Zod + shadcn-vue + Tailwind CSS + Axios
+
+#### 개발 흐름
+
+```
+ai-dlc-vue-project-setup
+        │
+        ▼
+ai-dlc-vue-impl-plan
+        │
+        ▼
+ai-dlc-vue-component-gen (화면별 반복)
+        │
+   ┌────┴─────────────────────────────────┐
+   ▼                                      ▼
+ai-dlc-vue-code-review          ai-dlc-vue-e2e-test-gen
+ai-dlc-vue-ts-check             → ai-dlc-fe-e2e-test-validate
+ai-dlc-vue-lint-check           → ai-dlc-fe-e2e-test-revise
+   │
+   ▼
+ai-dlc-vue-code-revise
+```
+
+#### 단계별 스킬 상세
+
+| 순서 | 스킬 | 트리거 예시 | 산출물 |
+|:---:|:---|:---|:---|
+| 1 | `ai-dlc-vue-project-setup` | "Vue.js 프로젝트 만들어줘" | package.json, vite.config.ts, tsconfig.json |
+| 2 | `ai-dlc-vue-impl-plan` | "Vue.js 구현 계획 세워줘" | Vue구현계획_*.md |
+| 3 | `ai-dlc-vue-component-gen` | "사용자 목록 화면 만들어줘" | views/*.vue, components/*.vue, composables/*.ts |
+| 4 | `ai-dlc-vue-code-review` | "Vue 코드 리뷰해줘" | 코드품질검토_*.md |
+| 5 | `ai-dlc-vue-ts-check` | "TypeScript 검사해줘" | TypeScript검사결과_*.md |
+| 6 | `ai-dlc-vue-lint-check` | "ESLint 검사해줘" | ESLint검사결과_*.md |
+| 7 | `ai-dlc-vue-code-revise` | "코드 리뷰 반영해줘" | 수정된 소스코드 |
+| 8 | `ai-dlc-vue-e2e-test-gen` | "Vue e2e 테스트 만들어줘" | tests/**/*.spec.ts |
+| 9 | `ai-dlc-fe-e2e-test-validate` | "e2e 테스트 검증해줘" | e2e테스트_검증_*.md |
+| 10 | `ai-dlc-fe-e2e-test-revise` | "e2e 테스트 수정해줘" | 수정된 테스트 |
+
+#### 가이드 스킬
+
+| 스킬 | 트리거 예시 | 내용 |
+|:---|:---|:---|
+| `ai-dlc-vue-pinia-guide` | "Pinia 사용법" | defineStore, storeToRefs, 액션·게터 패턴 |
+| `ai-dlc-vue-router-guide` | "Vue Router 사용법" | 동적 라우트, 네비게이션 가드, useRouter |
+| `ai-dlc-vue-query-guide` | "Vue Query 사용법" | useQuery, useMutation, 낙관적 업데이트 |
+| `ai-dlc-vue-form-guide` | "VeeValidate 사용법" | useForm, Zod 스키마 연동, Field 컴포넌트 |
+| `ai-dlc-vue-ui-guide` | "shadcn-vue 사용법" | 컴포넌트 설치, Radix-Vue 기반 패턴 |
+| `ai-dlc-vue-perf-guide` | "Vue 성능 최적화" | defineAsyncComponent, v-memo, shallowRef |
+| `ai-dlc-fe-tailwind-guide` | "Tailwind 사용법" | React/Vite와 동일 재사용 |
+| `ai-dlc-fe-axios-guide` | "Axios 사용법" | React/Vite와 동일 재사용 |
+| `ai-dlc-fe-zod-guide` | "Zod 사용법" | React/Vite와 동일 재사용 |
+
+---
+
 ## 5. 스킬 전체 목록
 
 ### 요구사항 정의 (2종)
@@ -446,7 +506,7 @@ ai-dlc-nxt-page-gen              ai-dlc-nxt-route-handler-gen
 | `ai-dlc-dependency-analysis` | 의존성 분석 |
 | `ai-dlc-code-complexity` | 코드 복잡도 분석 |
 
-### 설계 (12종)
+### 설계 (18종)
 
 | 스킬명 | 역할 |
 |:---|:---|
@@ -537,6 +597,35 @@ ai-dlc-nxt-page-gen              ai-dlc-nxt-route-handler-gen
 | `ai-dlc-nxt-middleware-guide` | Next.js 미들웨어 가이드 |
 | `ai-dlc-nxt-perf-guide` | 성능 최적화 가이드 |
 | `ai-dlc-nxt-deploy-guide` | 배포 가이드 |
+
+### 개발 — Vue.js 3 (14종)
+
+| 스킬명 | 역할 |
+|:---|:---|
+| `ai-dlc-vue-project-setup` | Vue.js 3 프로젝트 초기화 |
+| `ai-dlc-vue-impl-plan` | Vue.js 구현 전략 계획 |
+| `ai-dlc-vue-component-gen` | SFC 컴포넌트·Composable·API 코드 생성 |
+| `ai-dlc-vue-e2e-test-gen` | Playwright e2e 테스트 생성 |
+| `ai-dlc-vue-code-review` | Vue.js 코드 품질 검토 |
+| `ai-dlc-vue-ts-check` | vue-tsc 타입 검사 |
+| `ai-dlc-vue-lint-check` | ESLint + eslint-plugin-vue 검사 |
+| `ai-dlc-vue-code-revise` | 코드 리뷰 반영 |
+| `ai-dlc-vue-pinia-guide` | Pinia 상태관리 가이드 |
+| `ai-dlc-vue-router-guide` | Vue Router v4 가이드 |
+| `ai-dlc-vue-query-guide` | @tanstack/vue-query 가이드 |
+| `ai-dlc-vue-form-guide` | VeeValidate v4 + Zod 가이드 |
+| `ai-dlc-vue-ui-guide` | shadcn-vue 컴포넌트 가이드 |
+| `ai-dlc-vue-perf-guide` | Vue.js 성능 최적화 가이드 |
+
+### 변경 관리 (5종)
+
+| 스킬명 | 역할 |
+|:---|:---|
+| `ai-dlc-change-register` | 변경 요청(CR) 등록 및 채번 |
+| `ai-dlc-change-complete` | CR 완료 처리 및 상태 업데이트 |
+| `ai-dlc-consistency-check` | 산출물 간 일관성 검증 |
+| `ai-dlc-impact-analysis` | 변경 영향도 분석 |
+| `ai-dlc-doc-impact` | 문서 영향도 분석 |
 
 ### 유틸리티 (2종)
 
@@ -678,5 +767,5 @@ ai-dlc-nxt-page-gen              ai-dlc-nxt-route-handler-gen
 
 ---
 
-> 이 문서는 `E:\apps\ai-dlc\plans\` 의 PLAN 파일들과 `C:\Users\kdkim2000\.claude\skills\ai-dlc-common\references\` 를 기반으로 작성되었습니다.
+> 이 문서는 `plans/` 의 PLAN 파일들과 `skills/ai-dlc-common/references/` 를 기반으로 작성되었습니다.
 > 스킬 추가·변경 시 이 문서도 함께 업데이트하세요.
