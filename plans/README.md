@@ -23,6 +23,8 @@ PLAN-{NNN}_{주제_식별자}.md
 | 006 | [PLAN-006_fe-react-skills-batch.md](PLAN-006_fe-react-skills-batch.md) | AI-DLC 개발단계(프론트엔드-React) 스킬 18종 일괄 생성 | 2026-05-23 | 완료 |
 | 007 | [PLAN-007_nxt-nextjs-skills-batch.md](PLAN-007_nxt-nextjs-skills-batch.md) | AI-DLC 개발단계(프론트엔드-Next.js) 스킬 13종 일괄 생성 | 2026-05-23 | 완료 |
 | 008 | [PLAN-008_vue-skills-batch.md](PLAN-008_vue-skills-batch.md) | AI-DLC 개발단계(프론트엔드-Vue.js) 스킬 14종 일괄 생성 | 2026-05-24 | 완료 |
+| 009 | [PLAN-009_readme-creation.md](PLAN-009_readme-creation.md) | AI-DLC GitHub README.md 생성 | 2026-05-24 | 완료 |
+| 010 | [PLAN-010_ai-dlc-readme-vue-update.md](PLAN-010_ai-dlc-readme-vue-update.md) | AI-DLC-README.md Vue.js 내용 최신화 | 2026-05-24 | 완료 |
 
 ## 산출물 위치
 
