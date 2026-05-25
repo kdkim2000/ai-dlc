@@ -2,7 +2,7 @@
 
 > **Claude Code 스킬을 활용하여 요구사항 정의부터 코드 생성·검증까지 전체 개발 생명주기를 AI와 함께 진행하는 방법론**
 
-![스킬 수](https://img.shields.io/badge/스킬-110종-blue) ![아키텍처](https://img.shields.io/badge/아키텍처-4종-green) ![언어](https://img.shields.io/badge/언어-한국어-red)
+![스킬 수](https://img.shields.io/badge/스킬-120종-blue) ![아키텍처](https://img.shields.io/badge/아키텍처-4종-green) ![언어](https://img.shields.io/badge/언어-한국어-red)
 
 ---
 
@@ -21,7 +21,8 @@
    - [5-6. 개발 — Next.js App Router](#5-6-개발--nextjs-app-router)
    - [5-7. 개발 — Vue.js 3](#5-7-개발--vuejs-3)
    - [5-8. 변경 관리](#5-8-변경-관리)
-6. [스킬 전체 목록 (110종)](#6-스킬-전체-목록-110종)
+   - [5-9. 납품/인도](#5-9-납품인도)
+6. [스킬 전체 목록 (120종)](#6-스킬-전체-목록-120종)
 7. [ID 체계 및 산출물 연계](#7-id-체계-및-산출물-연계)
 8. [산출물 파일 규칙](#8-산출물-파일-규칙)
 9. [스킬 사용 팁](#9-스킬-사용-팁)
@@ -650,7 +651,38 @@ ai-dlc-change-complete          CR 상태를 '완료'로 업데이트
 
 ---
 
-## 6. 스킬 전체 목록 (115종)
+### 5-9. 납품/인도
+
+**목표**: 개발·검증 완료 후 모든 산출물을 최종 납품 패키지로 정리
+
+```
+[개발 및 검증 완료]
+         │
+         ▼
+ai-dlc-delivery-checklist     ← "납품 검수 목록 만들어줘"
+(납품검수목록_*.md)
+         │
+    ┌────┼──────────────────┐
+    ▼    ▼                  ▼
+  시스템개요서   사용자매뉴얼   개발자가이드
+    └────┴──────────────────┘
+                │
+                ▼
+ai-dlc-delivery-package       ← "납품 패키지 만들어줘"
+(납품패키지_인덱스_*.md)
+```
+
+| 스킬 | 트리거 예시 | 산출물 |
+|:---|:---|:---|
+| `ai-dlc-delivery-checklist` | "납품 검수 목록 만들어줘", "납품 준비 상태 확인해줘" | 납품검수목록_*.md |
+| `ai-dlc-system-overview` | "시스템 개요서 만들어줘", "인수인계 개요서 작성해줘" | 시스템개요서_*.md |
+| `ai-dlc-user-manual` | "사용자 매뉴얼 만들어줘", "사용 설명서 만들어줘" | 사용자매뉴얼_*.md |
+| `ai-dlc-dev-guide` | "개발자 가이드 만들어줘", "기술 문서 만들어줘" | 개발자가이드_*.md |
+| `ai-dlc-delivery-package` | "납품 패키지 만들어줘", "최종 납품 정리해줘" | 납품패키지_인덱스_*.md |
+
+---
+
+## 6. 스킬 전체 목록 (120종)
 
 ### 아이디어 구체화 — Pre-Requirements (5종)
 
@@ -813,6 +845,16 @@ ai-dlc-change-complete          CR 상태를 '완료'로 업데이트
 | `ai-dlc-vue-form-guide` | VeeValidate v4 + Zod 폼 검증 가이드 |
 | `ai-dlc-vue-ui-guide` | shadcn-vue / radix-vue UI 가이드 |
 | `ai-dlc-vue-perf-guide` | Vue.js 성능 최적화 가이드 |
+
+### 납품/인도 (5종)
+
+| 스킬명 | 역할 |
+|:---|:---|
+| `ai-dlc-delivery-checklist` | 단계별 산출물 수집 + 필수·권장 항목 검수 판정 |
+| `ai-dlc-system-overview` | 모든 산출물 통합 → 시스템 개요서 생성 |
+| `ai-dlc-user-manual` | 화면정의서·유즈케이스 → 사용자 매뉴얼 생성 |
+| `ai-dlc-dev-guide` | API·DB·소스코드 → 개발자 가이드 생성 |
+| `ai-dlc-delivery-package` | 납품 패키지 인덱스 + Word 변환 안내 생성 |
 
 ### 유틸리티 (2종)
 
