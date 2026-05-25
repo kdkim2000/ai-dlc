@@ -650,7 +650,17 @@ ai-dlc-change-complete          CR 상태를 '완료'로 업데이트
 
 ---
 
-## 6. 스킬 전체 목록 (110종)
+## 6. 스킬 전체 목록 (115종)
+
+### 아이디어 구체화 — Pre-Requirements (5종)
+
+| 스킬명 | 역할 |
+|:---|:---|
+| `ai-dlc-idea-clarify` | 막연한 아이디어·불편함 → 아이디어정의서 (5W1H 인터뷰) |
+| `ai-dlc-persona-create` | 사용자 페르소나 정의 (PS-NNN) |
+| `ai-dlc-user-story-map` | 사용자 여정 + 스토리 맵 (US-NNN, MoSCoW 분류) |
+| `ai-dlc-mvp-scope` | MoSCoW MVP 범위 정의 + 릴리즈 로드맵 |
+| `ai-dlc-idea-to-req` | 아이디어 산출물 → FR-NNN 요구사항 정의서 변환 (기존 AI-DLC 연결) |
 
 ### 요구사항 정의 (2종)
 

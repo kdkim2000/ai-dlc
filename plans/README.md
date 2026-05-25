@@ -25,6 +25,7 @@ PLAN-{NNN}_{주제_식별자}.md
 | 008 | [PLAN-008_vue-skills-batch.md](PLAN-008_vue-skills-batch.md) | AI-DLC 개발단계(프론트엔드-Vue.js) 스킬 14종 일괄 생성 | 2026-05-24 | 완료 |
 | 009 | [PLAN-009_readme-creation.md](PLAN-009_readme-creation.md) | AI-DLC GitHub README.md 생성 | 2026-05-24 | 완료 |
 | 010 | [PLAN-010_ai-dlc-readme-vue-update.md](PLAN-010_ai-dlc-readme-vue-update.md) | AI-DLC-README.md Vue.js 내용 최신화 | 2026-05-24 | 완료 |
+| 011 | [PLAN-011_pre-requirements-skills-batch.md](PLAN-011_pre-requirements-skills-batch.md) | AI-DLC Pre-Requirements 스킬 5종 일괄 생성 | 2026-05-25 | 완료 |
 
 ## 산출물 위치
 
@@ -138,3 +139,8 @@ PLAN-{NNN}_{주제_식별자}.md
 | ai-dlc-vue-form-guide | `.claude\skills\ai-dlc-vue-form-guide\` |
 | ai-dlc-vue-ui-guide | `.claude\skills\ai-dlc-vue-ui-guide\` |
 | ai-dlc-vue-perf-guide | `.claude\skills\ai-dlc-vue-perf-guide\` |
+| ai-dlc-idea-clarify | `.claude\skills\ai-dlc-idea-clarify\` |
+| ai-dlc-persona-create | `.claude\skills\ai-dlc-persona-create\` |
+| ai-dlc-user-story-map | `.claude\skills\ai-dlc-user-story-map\` |
+| ai-dlc-mvp-scope | `.claude\skills\ai-dlc-mvp-scope\` |
+| ai-dlc-idea-to-req | `.claude\skills\ai-dlc-idea-to-req\` |
